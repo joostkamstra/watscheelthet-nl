@@ -139,8 +139,7 @@ export default function HistoryChart({ history }: HistoryChartProps) {
           display: true,
           text: 'D66 voorsprong ↑  |  PVV voorsprong ↓',
           font: {
-            size: 11,
-            weight: 'normal'
+            size: 11
           },
           color: '#64748b'
         }
