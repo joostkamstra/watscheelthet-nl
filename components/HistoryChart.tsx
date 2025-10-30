@@ -43,22 +43,41 @@ export default function HistoryChart({ history }: HistoryChartProps) {
     });
   });
 
+  // Calculate signed difference: positive = D66 leads, negative = PVV leads
+  const signedDifferences = history.map(point => point.d66 - point.pvv);
+
   const data = {
     labels,
     datasets: [
       {
-        label: 'Verschil in stemmen',
-        data: history.map(point => point.difference),
+        label: 'Voorsprong',
+        data: signedDifferences,
         borderColor: 'rgb(99, 102, 241)',
-        backgroundColor: 'rgba(99, 102, 241, 0.1)',
+        backgroundColor: (context: any) => {
+          const value = context.parsed?.y;
+          if (value > 0) {
+            return 'rgba(0, 166, 81, 0.1)'; // D66 groen
+          } else {
+            return 'rgba(10, 45, 92, 0.1)'; // PVV blauw
+          }
+        },
         borderWidth: 3,
-        pointBackgroundColor: 'rgb(99, 102, 241)',
+        pointBackgroundColor: (context: any) => {
+          const value = context.parsed?.y;
+          return value > 0 ? 'rgb(0, 166, 81)' : 'rgb(10, 45, 92)';
+        },
         pointBorderColor: '#fff',
         pointBorderWidth: 2,
         pointRadius: 6,
         pointHoverRadius: 8,
         tension: 0.4,
         fill: true,
+        segment: {
+          borderColor: (context: any) => {
+            const value = context.p1.parsed.y;
+            return value > 0 ? 'rgb(0, 166, 81)' : 'rgb(10, 45, 92)';
+          }
+        }
       }
     ]
   };
@@ -82,16 +101,26 @@ export default function HistoryChart({ history }: HistoryChartProps) {
         },
         callbacks: {
           label: function(context: any) {
-            return `Verschil: ${context.parsed.y.toLocaleString('nl-NL')} stemmen`;
+            const value = context.parsed.y;
+            const absValue = Math.abs(value);
+            if (value > 0) {
+              return `D66 voorsprong: ${absValue.toLocaleString('nl-NL')} stemmen`;
+            } else if (value < 0) {
+              return `PVV voorsprong: ${absValue.toLocaleString('nl-NL')} stemmen`;
+            } else {
+              return 'Gelijk aantal stemmen';
+            }
           }
         }
       }
     },
     scales: {
       y: {
-        beginAtZero: false,
+        beginAtZero: true,
         ticks: {
           callback: function(value: any) {
+            const num = Number(value);
+            if (num === 0) return '0 (Gelijk)';
             return value.toLocaleString('nl-NL');
           },
           font: {
@@ -99,7 +128,21 @@ export default function HistoryChart({ history }: HistoryChartProps) {
           }
         },
         grid: {
-          color: 'rgba(0, 0, 0, 0.05)',
+          color: (context: any) => {
+            return context.tick.value === 0 ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.05)';
+          },
+          lineWidth: (context: any) => {
+            return context.tick.value === 0 ? 2 : 1;
+          }
+        },
+        title: {
+          display: true,
+          text: 'D66 voorsprong ↑  |  PVV voorsprong ↓',
+          font: {
+            size: 11,
+            weight: 'normal'
+          },
+          color: '#64748b'
         }
       },
       x: {
