@@ -51,7 +51,7 @@ export default function Home() {
             Wat Scheelt Het?
           </h1>
           <p className="text-lg sm:text-xl text-slate-600">
-            PVV vs D66 • Provinciale Statenverkiezingen 2025
+            PVV vs D66 • Tweede Kamerverkiezingen 2025
           </p>
         </div>
 

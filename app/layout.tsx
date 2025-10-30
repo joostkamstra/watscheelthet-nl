@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Wat Scheelt Het? | PVV vs D66 Verkiezingen 2025",
-  description: "Live tussenstand van de spannende strijd tussen PVV en D66 bij de Provinciale Statenverkiezingen 2025. Slechts 1.984 stemmen verschil!",
-  keywords: ["verkiezingen", "PVV", "D66", "provinciale staten", "2025", "Nederland", "stemmen", "uitslag"],
+  description: "Live tussenstand van de spannende strijd tussen PVV en D66 bij de Tweede Kamerverkiezingen 2025. D66 15.155 stemmen voorsprong!",
+  keywords: ["verkiezingen", "PVV", "D66", "tweede kamer", "2025", "Nederland", "stemmen", "uitslag"],
   authors: [{ name: "Joost Kamstra" }],
   openGraph: {
     title: "Wat Scheelt Het? | PVV vs D66",

@@ -1,43 +1,43 @@
 {
-  "lastUpdate": "2025-10-30T18:45:00+01:00",
+  "lastUpdate": "2025-10-30T19:15:00+01:00",
   "pvv": {
     "name": "PVV",
-    "votes": 1502168,
+    "votes": 1748460,
     "seats": 26,
     "color": "#0a2d5c"
   },
   "d66": {
     "name": "D66",
-    "votes": 1517290,
+    "votes": 1763615,
     "seats": 26,
     "color": "#00a651"
   },
-  "percentageCounted": 99.9,
+  "percentageCounted": 100,
   "remainingMunicipalities": [],
   "history": [
     {
       "timestamp": "2025-10-29T23:00:00+01:00",
-      "pvv": 1450000,
-      "d66": 1448500,
+      "pvv": 1650000,
+      "d66": 1648500,
       "difference": 1500
     },
     {
       "timestamp": "2025-10-30T10:00:00+01:00",
-      "pvv": 1480000,
-      "d66": 1478200,
+      "pvv": 1720000,
+      "d66": 1718200,
       "difference": 1800
     },
     {
       "timestamp": "2025-10-30T14:30:00+01:00",
-      "pvv": 1502168,
-      "d66": 1500184,
+      "pvv": 1748460,
+      "d66": 1746476,
       "difference": 1984
     },
     {
-      "timestamp": "2025-10-30T18:45:00+01:00",
-      "pvv": 1502168,
-      "d66": 1517290,
-      "difference": 15122
+      "timestamp": "2025-10-30T19:15:00+01:00",
+      "pvv": 1748460,
+      "d66": 1763615,
+      "difference": 15155
     }
   ]
 }
