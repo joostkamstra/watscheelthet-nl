@@ -5,7 +5,7 @@ import { ElectionData } from '@/types';
 import DifferenceDisplay from '@/components/DifferenceDisplay';
 import ProgressBar from '@/components/ProgressBar';
 import RemainingMunicipalities from '@/components/RemainingMunicipalities';
-import HistoryChart from '@/components/HistoryChart';
+import Image from 'next/image';
 
 export default function Home() {
   const [data, setData] = useState<ElectionData | null>(null);
@@ -66,12 +66,25 @@ export default function Home() {
         {/* Progress bar */}
         <ProgressBar percentage={data.percentageCounted} />
 
-        {/* History chart */}
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">
-            Verloop verschil
-          </h2>
-          <HistoryChart history={data.history} />
+        {/* Wilders foto - verliezer */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 overflow-hidden">
+          <div className="text-center mb-4">
+            <h2 className="text-3xl font-bold text-slate-900 mb-2">
+              De Verliezer
+            </h2>
+            <p className="text-lg text-slate-600">
+              PVV staat {difference.toLocaleString('nl-NL')} stemmen achter
+            </p>
+          </div>
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+            <Image
+              src="/images/wilders-sad.jpg"
+              alt="Geert Wilders"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
 
         {/* Remaining municipalities */}
