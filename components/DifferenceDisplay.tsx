@@ -1,6 +1,7 @@
 'use client';
 
 import { Party } from '@/types';
+import Image from 'next/image';
 
 interface DifferenceDisplayProps {
   pvv: Party;
@@ -72,6 +73,43 @@ export default function DifferenceDisplay({ pvv, d66, difference, leader }: Diff
           </div>
           <div className="text-base sm:text-lg text-slate-500">
             stemmen voorsprong voor {leader === 'pvv' ? pvv.name : d66.name}
+          </div>
+        </div>
+      </div>
+
+      {/* Leader photo section */}
+      <div className="bg-white p-6 sm:p-8 border-t-2 border-slate-100">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
+          {/* Winner photo */}
+          <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-green-500 shadow-xl">
+            <Image
+              src={leader === 'd66' ? '/jetten-happy.jpg' : '/wilders-happy.jpg'}
+              alt={leader === 'd66' ? 'Rob Jetten blij' : 'Geert Wilders blij'}
+              fill
+              className="object-cover"
+              unoptimized
+            />
+          </div>
+
+          {/* Winner text */}
+          <div className="text-center sm:text-left">
+            <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">
+              {leader === 'd66' ? '🎉 Rob Jetten' : '🎉 Geert Wilders'}
+            </div>
+            <div className="text-lg sm:text-xl text-slate-700 font-medium">
+              {leader === 'd66' ? 'D66 is de grootste partij!' : 'PVV is de grootste partij!'}
+            </div>
+          </div>
+
+          {/* Loser photo */}
+          <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-slate-300 shadow-lg opacity-60">
+            <Image
+              src={leader === 'd66' ? '/wilders-sad.jpg' : '/jetten-sad.jpg'}
+              alt={leader === 'd66' ? 'Geert Wilders verdrietig' : 'Rob Jetten verdrietig'}
+              fill
+              className="object-cover grayscale"
+              unoptimized
+            />
           </div>
         </div>
       </div>
