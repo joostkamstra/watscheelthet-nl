@@ -1,0 +1,43 @@
+{
+  "lastUpdate": "2025-10-30T14:30:00+01:00",
+  "pvv": {
+    "name": "PVV",
+    "votes": 1502168,
+    "seats": 26,
+    "color": "#0a2d5c"
+  },
+  "d66": {
+    "name": "D66",
+    "votes": 1500184,
+    "seats": 26,
+    "color": "#00a651"
+  },
+  "percentageCounted": 99.7,
+  "remainingMunicipalities": [
+    "Amsterdam (86.500 stemmen)",
+    "Venray (onderbroken door brand)",
+    "Hilversum (tablets uitgevallen)",
+    "Almere (4% nog te verwerken)",
+    "Briefstemmen buitenland (90.000 stemmen)"
+  ],
+  "history": [
+    {
+      "timestamp": "2025-10-29T23:00:00+01:00",
+      "pvv": 1450000,
+      "d66": 1448500,
+      "difference": 1500
+    },
+    {
+      "timestamp": "2025-10-30T10:00:00+01:00",
+      "pvv": 1480000,
+      "d66": 1478200,
+      "difference": 1800
+    },
+    {
+      "timestamp": "2025-10-30T14:30:00+01:00",
+      "pvv": 1502168,
+      "d66": 1500184,
+      "difference": 1984
+    }
+  ]
+}
